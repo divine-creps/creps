@@ -121,239 +121,251 @@ section {
 
 
 /* =========================================================
-   HEADER
+   HEADE========================================================= */
+
+/* =========================================================
+HEADER
 ========================================================= */
 
 .main-header {
+position: fixed;
+top: 0;
+left: 0;
 
-    position: fixed;
 
-    top: 0;
-    left: 0;
+width: 100%;
+z-index: 99999;
 
-    width: 100%;
+padding: 15px 5vw;
 
-    z-index: 1000;
+background: rgba(255, 255, 255, 0.92);
 
-    padding: 15px 5vw;
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
 
-    background: rgba(255, 255, 255, 0.92);
+border-bottom: 1px solid rgba(0, 56, 59, 0.06);
 
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+transition:
+    padding 0.4s var(--ease),
+    background 0.4s ease,
+    box-shadow 0.4s ease;
 
-    border-bottom:
-        1px solid rgba(0, 56, 59, 0.06);
-
-    transition:
-        padding 0.4s var(--ease),
-        background 0.4s ease,
-        box-shadow 0.4s ease;
 }
-
-
-/* HEADER APRÈS SCROLL */
-
-.main-header.scrolled {
-
-    padding: 9px 5vw;
-
-    background:
-        rgba(255, 255, 255, 0.94);
-
-    box-shadow:
-        0 10px 35px rgba(0, 56, 59, 0.10);
-}
-
-
-/* CONTENEUR */
-
-.header-inner {
-
-    width: min(1500px, 100%);
-
-    margin: 0 auto;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 40px;
-}
-
 
 /* =========================================================
-   LOGOS
+HEADER APRÈS SCROLL
+========================================================= */
+
+.main-header.scrolled {
+padding: 9px 5vw;
+
+
+background: rgba(255, 255, 255, 0.94);
+
+box-shadow:
+    0 10px 35px rgba(0, 56, 59, 0.10);
+
+
+}
+
+/* =========================================================
+CONTENEUR
+========================================================= */
+
+.header-inner {
+width: min(1500px, 100%);
+margin: 0 auto;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+gap: 40px;
+
+}
+
+/* =========================================================
+LOGOS
 ========================================================= */
 
 .brand {
+display: flex;
+align-items: center;
 
-    display: flex;
 
-    align-items: center;
+gap: 12px;
 
-    gap: 12px;
+flex-shrink: 0;
 
-    flex-shrink: 0;
+text-decoration: none;
 
-    text-decoration: none;
+
 }
 
 .logo-fr,
 .logo-creps {
+width: auto;
+height: 46px;
 
-    width: auto;
+object-fit: contain;
 
-    height: 46px;
 
-    object-fit: contain;
 }
 
 .logo-fr {
-    max-width: 90px;
+max-width: 90px;
 }
 
 .logo-creps {
-    max-width: 145px;
+max-width: 145px;
 }
 
-
 /* =========================================================
-   NAVIGATION
+NAVIGATION DESKTOP
 ========================================================= */
 
 .navbar {
-
-    display: flex;
-
-    align-items: center;
+display: flex;
+align-items: center;
 }
 
 .nav-links {
+display: flex;
+align-items: center;
 
-    display: flex;
 
-    align-items: center;
+gap: clamp(18px, 2vw, 32px);
 
-    gap: clamp(18px, 2vw, 32px);
+list-style: none;
 
-    list-style: none;
+margin: 0;
+padding: 0;
 
-    margin: 0;
 
-    padding: 0;
 }
 
 .nav-links a {
+position: relative;
 
-    position: relative;
 
-    display: inline-block;
+display: inline-block;
 
-    padding: 7px 0;
+padding: 7px 0;
 
-    text-decoration: none;
+text-decoration: none;
 
-    color: var(--creps-dark);
+color: var(--creps-dark);
 
-    font-size: 0.86rem;
+font-size: 0.86rem;
+font-weight: 750;
 
-    font-weight: 750;
+letter-spacing: 0.015em;
 
-    letter-spacing: 0.015em;
+transition:
+    color 0.25s ease;
 
-    transition:
-        color 0.25s ease;
+
 }
 
 .nav-links a::after {
+content: "";
 
-    content: "";
 
-    position: absolute;
+position: absolute;
 
-    left: 0;
-    bottom: -2px;
+left: 0;
+bottom: -2px;
 
-    width: 0;
-    height: 2px;
+width: 0;
+height: 2px;
 
-    border-radius: 10px;
+border-radius: 10px;
 
-    background: var(--orange);
+background: var(--orange);
 
-    transition:
-        width 0.35s var(--ease);
+transition:
+    width 0.35s var(--ease);
+
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--creps-green);
+color: var(--creps-green);
 }
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
-    width: 100%;
+width: 100%;
 }
 
-
 /* =========================================================
-   BURGER
+BURGER
 ========================================================= */
 
 .nav-toggle {
+display: none;
 
-    display: none;
+width: 44px;
+height: 44px;
 
-    width: 44px;
-    height: 44px;
+padding: 0;
 
-    padding: 0;
+border: 0;
+background: transparent;
 
-    border: 0;
+cursor: pointer;
 
-    background: transparent;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 
-    cursor: pointer;
+gap: 6px;
 
-    flex-direction: column;
+position: relative;
 
-    align-items: flex-end;
+z-index: 1000001;
 
-    justify-content: center;
-
-    gap: 5px;
 }
 
 .nav-toggle span {
+display: block;
 
-    display: block;
 
-    width: 25px;
-    height: 2px;
+width: 26px;
+height: 2px;
 
-    border-radius: 5px;
+border-radius: 5px;
 
-    background: var(--creps-dark);
+background: var(--creps-dark);
 
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+
 }
 
+/* =========================================================
+ANIMATION BURGER -> X
+========================================================= */
+
 .nav-toggle.open span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+transform:
+translateY(8px)
+rotate(45deg);
 }
 
 .nav-toggle.open span:nth-child(2) {
-    opacity: 0;
+opacity: 0;
 }
 
 .nav-toggle.open span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+transform:
+translateY(-8px)
+rotate(-45deg);
 }
+
+
+
 
 
 /* =========================================================
@@ -1104,9 +1116,6 @@ section {
    LOCATION
 ========================================================= */
 
-/* =========================================================
-   LOCATION — VERSION STABLE + VH + PREMIUM
-========================================================= */
 
 .location {
     overflow: hidden;
@@ -1116,15 +1125,7 @@ section {
 }
 
 .location::before {
-    content: "LOCATION";
-    position: absolute;
-    right: -40px;
-    top: 20px;
-    color: rgba(255,255,255,0.025);
-    font-size: clamp(6rem, 15vw, 15rem);
-    font-weight: 900;
-    line-height: 1;
-    pointer-events: none;
+  content: none !important;
 }
 
 .location .section-heading h2 span {
@@ -1538,25 +1539,7 @@ section {
 
 .services::before {
 
-    content: "PERFORMANCE";
-
-    position: absolute;
-
-    left: -30px;
-
-    bottom: -10px;
-
-    color:
-        rgba(0,106,111,0.025);
-
-    font-size:
-        clamp(5rem, 13vw, 13rem);
-
-    font-weight: 900;
-
-    line-height: 1;
-
-    pointer-events: none;
+   content: none !important;
 }
 
 .services-grid {
@@ -1728,25 +1711,7 @@ section {
 
 .team::after {
 
-    content: "TEAM";
-
-    position: absolute;
-
-    right: -40px;
-
-    bottom: -60px;
-
-    color:
-        rgba(255,255,255,0.025);
-
-    font-size:
-        clamp(8rem, 20vw, 20rem);
-
-    font-weight: 900;
-
-    line-height: 1;
-
-    pointer-events: none;
+ content: none !important;
 }
 
 .team-content {
@@ -1901,27 +1866,7 @@ section {
         );
 }
 
-.contact-icon {
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 45px;
-    height: 45px;
-
-    margin-bottom: 28px;
-
-    border-radius: 50%;
-
-    color: white;
-
-    background: var(--orange);
-
-    font-size: 1.2rem;
-}
 
 .contact-card h3 {
 
@@ -2753,72 +2698,370 @@ section {
 }
 
 
+@media (max-width: 900px) {
+
+    /* Cache le menu horizontal */
+    .navbar ul {
+        display: none !important;
+    }
+
+    /* Le burger apparaît */
+    .nav-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1000000;
+    }
+
+    .nav-toggle span {
+        width: 26px;
+        height: 3px;
+        background: #0f4c5c;
+        border-radius: 999px;
+    }
+
+    /* Le panneau mobile à gauche */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100vh;
+        background: #0f4c5c;
+        padding: 90px 25px 25px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        transition: left 0.35s ease;
+        z-index: 999999;
+    }
+
+    /* Quand le menu est ouvert */
+    .nav-links.open {
+        left: 0;
+    }
+
+    /* Liens en mobile */
+    .nav-links a {
+        color: white !important;
+        font-size: 1.05rem;
+        font-weight: 600;
+        padding: 8px 0;
+    }
+
+    /* Désactive la ligne orange en mobile */
+    .nav-links a::after {
+        display: none !important;
+    }
+}
+
 /* =========================================================
-   TRÈS PETITS ÉCRANS
+   MENU MOBILE CREPS - FULL SCREEN
 ========================================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 900px) {
 
-    .hero {
+    /* Header */
 
-        min-height:
-            65vh;
+    .main-header {
+        padding: 10px 5vw;
+        z-index: 1000000;
     }
 
-    .hero h1 {
-        font-size:
-            2.55rem;
+
+    .header-inner {
+        gap: 15px;
     }
 
-    .hero-content > p {
-        font-size:
-            0.88rem;
+
+    /* Navigation */
+
+    .navbar {
+        display: flex;
+        align-items: center;
     }
 
-    .section-heading h2,
-    .intro-content h2 {
-        font-size:
-            2.35rem;
+
+    /* =====================================================
+       BOUTON BURGER
+    ===================================================== */
+
+    .nav-toggle {
+        display: flex;
+
+        position: relative;
+        z-index: 1000003;
+
+        flex-shrink: 0;
+
+        cursor: pointer;
     }
 
-    .big-number {
-        font-size:
-            4.8rem;
+
+    /* =====================================================
+       FOND IMAGE À GAUCHE
+    ===================================================== */
+
+    .navbar::before {
+        content: "";
+
+        position: fixed;
+
+        top: 74px;
+        left: 0;
+
+        width: 48%;
+        height: calc(100dvh - 74px);
+
+        background:
+            linear-gradient(
+                rgba(0, 40, 43, 0.45),
+                rgba(0, 40, 43, 0.45)
+            ),
+            url("image_structure/menu-mobile.jpg");
+
+        background-size: cover;
+        background-position: center;
+
+        z-index: 999998;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateX(-100%);
+
+        transition:
+            transform 0.5s var(--ease),
+            opacity 0.4s ease,
+            visibility 0.4s ease;
     }
+
+
+    /* =====================================================
+       PANNEAU MENU À DROITE
+    ===================================================== */
+
+    .nav-links {
+        position: fixed;
+
+        top: 74px;
+        right: 0;
+
+        width: 52%;
+        height: calc(100dvh - 74px);
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+        justify-content: flex-start;
+
+        gap: 0;
+
+        margin: 0;
+
+        padding: 45px 50px;
+
+        list-style: none;
+
+        background: var(--creps-green);
+
+        overflow-y: auto;
+
+        z-index: 999999;
+
+        transform: translateX(105%);
+
+        transition:
+            transform 0.5s var(--ease);
+    }
+
+
+    /* =====================================================
+       MENU OUVERT
+    ===================================================== */
+
+    body.menu-open .navbar::before {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateX(0);
+    }
+
+
+    .nav-links.open {
+        transform: translateX(0);
+    }
+
+
+    /* =====================================================
+       ÉLÉMENTS DU MENU
+    ===================================================== */
+
+    .nav-links li {
+        position: relative;
+
+        display: flex;
+
+        align-items: center;
+
+        width: 100%;
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.08);
+    }
+
+
+    .nav-links a {
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+
+        padding: 20px 35px 20px 0;
+
+        color: var(--white);
+
+        text-decoration: none;
+
+        font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+
+        font-weight: 800;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        transition:
+            color 0.25s ease,
+            padding-left 0.25s ease;
+    }
+
+
+    /* Petite flèche à droite */
+
+    .nav-links li::after {
+        content: "⌄";
+
+        position: absolute;
+
+        right: 0;
+
+        color: rgba(255, 255, 255, 0.65);
+
+        font-size: 1.5rem;
+
+        pointer-events: none;
+
+        transition:
+            transform 0.3s ease,
+            color 0.3s ease;
+    }
+
+
+    /* Hover */
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--orange-light);
+
+        padding-left: 8px;
+    }
+
+
+    .nav-links li:hover::after {
+        color: var(--orange-light);
+
+        transform: translateY(3px);
+    }
+
+
+    /* Désactivation de l'ancien soulignement */
+
+    .nav-links a::after {
+        display: none;
+    }
+
 }
 
 
 /* =========================================================
-   ACCESSIBILITÉ
+   TABLETTE
 ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 700px) {
 
-    html {
-        scroll-behavior: auto;
+    .navbar::before {
+        display: none;
     }
 
-    *,
-    *::before,
-    *::after {
 
-        animation-duration:
-            0.01ms !important;
+    .nav-links {
+        width: 100%;
 
-        animation-iteration-count:
-            1 !important;
+        padding: 35px 30px;
 
-        transition-duration:
-            0.01ms !important;
+        top: 70px;
+
+        height: calc(100dvh - 70px);
     }
 
-    .reveal,
-    .reveal-left,
-    .reveal-right {
+}
 
-        opacity: 1;
 
-        transform:
-            none;
+/* =========================================================
+   PETIT MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .main-header {
+        padding: 8px 5vw;
     }
+
+
+    .logo-fr,
+    .logo-creps {
+        height: 38px;
+    }
+
+
+    .logo-fr {
+        max-width: 70px;
+    }
+
+
+    .logo-creps {
+        max-width: 120px;
+    }
+
+
+    .nav-links {
+        top: 64px;
+
+        height: calc(100dvh - 64px);
+
+        padding: 25px 25px;
+    }
+
+
+    .nav-links a {
+        padding: 17px 30px 17px 0;
+
+        font-size: 0.9rem;
+
+        letter-spacing: 0.12em;
+    }
+
 }
